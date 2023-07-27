@@ -1,8 +1,20 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity} from "react-native";
 import { Stack, useRouter } from 'expo-router';
+import SimpleAnswer from "../components/SimpleAnswer";
+import Pointer from "../components/Pointer"
+import ViewModel from './indexViewModel'
 
 const Home = () => {
     const router = useRouter();
+
+    console.log("test")
+
+    const handlePress = () => {
+        var viewModel = new ViewModel()
+
+        console.log("test view model " + viewModel.test)
+        alert("test view model " + viewModel.test)
+    }
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -11,22 +23,26 @@ const Home = () => {
                     headerShown: false,
                 }}
             />
-            <Text style={styles.title}>Tab One</Text>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                <Image source={require('../assets/images/pentagram.png')}
-                    resizeMode="cover"
-                    style={styles.image}
-                />
-                <Image source={require('../assets/images/pentagram.png')}
-                    resizeMode="cover"
-                    style={styles.image}
-                />
-                <Image source={require('../assets/images/pentagram.png')}
-                    resizeMode="cover"
-                    style={styles.image}
-                />
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                <SimpleAnswer isYes={false} />
+
+                <SimpleAnswer isYes={true} />
             </View>
+
+            <Pointer />
+
+            <Text style={styles.title}>I was killed</Text>
+
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity style={{ height: 100, width: '50%' }}>
+                    <Text style={styles.title}>Hello</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ height: 100, width: '50%' }} onPress={handlePress}>
+                    <Text style={styles.title}>Goodbye</Text>
+                </TouchableOpacity>
+            </View>
+
         </SafeAreaView>
     );
 }
@@ -38,7 +54,6 @@ const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: '#242424',
-        alignItems: 'center',
     },
     image: {
         width: 40,
@@ -53,7 +68,8 @@ const styles = StyleSheet.create({
     title: {
         color: '#f1f1f1',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'UIFont',
+        textAlign: 'center',
     },
     separator: {
         marginVertical: 30,

@@ -65,7 +65,9 @@ SplashScreen.preventAutoHideAsync();
 
 const Layout = () => {
 	const [loaded, error] = useFonts({
-      SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+        SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+        GhostFont: require('../assets/fonts/Nosifer-Regular.ttf'),
+        UIFont: require('../assets/fonts/GermaniaOne-Regular.ttf'),
      ...FontAwesome.font,
     });
 
