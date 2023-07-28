@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\app\\(tabs)",
-    "\\assets",
-    "\\assets\\images",
-    "\\constants"
+    "\\app"
   ],
-  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
